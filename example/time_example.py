@@ -37,7 +37,7 @@ if __name__ == '__main__':
         '20160809',
         '1896-10-30',
         'Jan 2009',
-        'Jinstin said at 2020-10-30',
+        # 'Jinstin said at 2020-10-30',
     ]
 
     # for item in time_list:
@@ -96,14 +96,19 @@ if __name__ == '__main__':
         '2022年7月12日T20:50:00',
     ]
 
-    # for item in time_list:
-    #     # t = get_datetime(item)
-    #     t = mydatetime.directly_datetime(item)
-    #     print(t)
-
-    for item in text_list:
+    for item in time_list:
         # t = get_datetime(item)
-        # t = mydatetime.extract_date(item, date_only=False, day_first=True)
-        t = mydatetime.extract_datetime(item, day_first=False)
+        t = mydatetime.directly_datetime(item)
         print(t)
+        t2 = mydatetime.convert_timezone(t)
+        print(t2)
+        t3 = mydatetime.to_datetime_str(t2)
+        print(t3)
+
+
+    # for item in text_list:
+    #     # t = get_datetime(item)
+    #     # t = mydatetime.extract_date(item, date_only=False, day_first=True)
+    #     t = mydatetime.extract_datetime(item, day_first=False)
+    #     print(t)
 

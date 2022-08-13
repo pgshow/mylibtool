@@ -1,4 +1,5 @@
 import re
+import arrow
 from mylibtool.mydatetime import core
 
 
@@ -55,3 +56,27 @@ def extract_date(text, date_only=False, day_first=False):
         return date
     else:
         return datetime_tmp.replace(hour=0, minute=0, second=0)
+
+
+def convert_timezone(old_datetime, city_name_or_timezone='local'):
+    """
+    Convert a datetime to another timezone
+    :param old_datetime:
+    :param city_name_or_timezone: 'Asia/Shanghai' or '+04:00' or 'local'
+    :return:
+    """
+    try:
+        new_datetime = arrow.get(old_datetime).to(city_name_or_timezone)
+        return new_datetime.datetime
+    except:
+        raise Exception(f'datetime {old_datetime} might miss tzinfo')
+
+
+def to_datetime_str(datetime_obj, format_rule='YYYY-MM-DD HH:mm:ss'):
+    """
+    Convert a datetime to string
+    :param datetime_obj:
+    :param format_rule:
+    :return:
+    """
+    return arrow.get(datetime_obj).format(format_rule)
