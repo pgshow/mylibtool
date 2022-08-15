@@ -15,7 +15,7 @@ URL = 'https://github.com/pgshow/mylibtool'
 EMAIL = 'me@example.com'
 AUTHOR = 'Daniel'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 
 # What packages are required for this module to be executed?
 REQUIRED = [

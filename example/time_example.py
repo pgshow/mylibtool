@@ -1,4 +1,4 @@
-from mylibtool.mydatetime import mydatetime
+from mylibtool import mydatetime
 
 if __name__ == '__main__':
     time_list = [
