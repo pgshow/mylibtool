@@ -1,5 +1,6 @@
 import re
 import arrow
+from loguru import logger
 from mylibtool.mydatetime import core
 
 
@@ -66,6 +67,11 @@ def convert_timezone(old_datetime, city_name_or_timezone='local'):
     :return:
     """
     try:
+        if old_datetime.year < 1970:
+            # 1970年之前的时间，arrow库不支持
+            logger.warning(f'Mylibtool can not convert timezone for {old_datetime}, because it is before 1970')
+            return old_datetime
+
         new_datetime = arrow.get(old_datetime).to(city_name_or_timezone)
         return new_datetime.datetime
     except:
