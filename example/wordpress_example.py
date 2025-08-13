@@ -27,10 +27,11 @@ def custom_post_procedure(wp_cls, article, post_status):
 
 if __name__ == '__main__':
     wp_cls = WpApi(
-        wp_url='https://test.com/',
-        wp_user='admin',
-        api_key='CWa1 MHkn mnra DBgY T84b Uu74',
-        verify=False,  # Verify has to be false if your ssl has no certificate
+        wp_url='https://uptogo.com.tw/',
+        wp_user='auto',
+        wp_user_id=9,
+        api_key='5vzd qU3z 2kso 8mSu WEwZ M7xA',
+        verify=True,  # Verify has to be false if your ssl has no certificate
     )
 
     article = Dict()
